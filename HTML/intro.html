@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        //What is JS?
+        //JS is a scripting language that is used for client-side scripting on the web.
+        //It is used to add interactivity to web pages and to create dynamic user experiences.
+        //JS is used to create interactive web pages, web applications, and mobile applications.
+
+        //Why JS?
+        //Key Featurs od JS?
+        //1. Dynamic
+        //2. Event-Driven
+        //3. Lightweighted and interpreted
+        //4. Object Oriented:
+        //5. cross-platform
+        //6. Versatile: Used in both FE(ReactJS,Angular.js,VueJS) and BE(NodeJS,ExpressJS)
+        //7. Asynchronus: Handles the Multiple tasks at a time by using async/await key words
+        //8. Dynamic Typing: No need to declare the data type of the variable before using
+        //9. Security and Validation
+
+        //History of JS?
+        //1. 1995: Brendan Eich created the first version of JavaScript
+        //2. 1995: Netscape Navigator 2.0 was released with JavaScript
+        //3. 1996: JavaScript 1.1 was released
+        //4. 1997: JavaScript 1.2 was released(ECMASCript)(ES1)
+        //5. 2009(ES5):JsON
+        //6. 2015(ES6): let,const,arrow functions,classes,templat
+
+        //ECMAScript Versions?
+        //1. ES1: 1997
+        //2. ES2: 1998
+        //3. ES3: 1999
+        //4. ES4: 2008
+        //5. ES5: 2009--->JSON, Stricy mode,Array Methods(map(),filter(),reduse())
+        //6. ES6:2015---->let, const, arrow function, classes
+
+
+        //clonsole.log("Hello WOlrd")
+
+
+        //Variables?
+        //Sytax:
+
+        //Variable_Type VariableName = Value;
+        
+        //Types Variable?
+        //1.Var
+        //2.Let
+        //3. const
+            //Global Scobe
+        var number = 20;//Declaration
+        var number = 30;//Re-Declaration
+
+        var num;//Declaration
+        num = 20;//Assignment
+        num = 40;// Re-Assignment
+        console.log(number);
+
+        //2. Let
+            //Scope: Block Scope
+            let number1 = 20;//Declaration
+            console.log(number1);//20
+            //let number1 = 30;//Re-Declaration----Not Posiible
+           
+            number1 = 30;//Re-Assignment
+            console.log(number1);//30
+
+            //Scope: Block Scoped
+            //Re-declarationi not possible
+            //Re-assignment is posiible
+
+        //3. Const
+
+        const a = 10;
+        // a = 20;
+        console.log(a);//20--10
+
+        //Scope: Blocked Scope
+        //Re-declaration and RE-assignment both are not possible
+        
+
+        // var b;
+        //console.log(b); 
+
+
+        
+        // console.log(c);
+        // let c= 100;
+
+
+        // let c;
+        // console.log(c); // undefined
+        // c = 100;
+
+        //Naming Rules to Declare Variable
+        //1. Must start with a letter, underscore or dollar sign
+        //2. Must not start with a number
+        //3. Reserved Keywords cannot be used as Variable names
+        //4. Must not contain a space
+        //5. Cmael Case
+        //6. Variable name sare case sensitive
+        //7. letters._,$,Numbers
+        //8. short, 
+
+        // var a= 10;
+        // var A = 10
+
+        //Types of Variable Scpes?
+        //1. Global Scope
+        //2. Block Scope
+        //3. Local Scope
+
+        //Global Scope
+
+        
+
+        // let globalVar = 10;
+
+        // function global(){
+        //     console.log("i am GLobal Variable:"+globalVar);
+        //     var globalVar = 20;
+        //     function global1(){
+        //     console.log("i am GLobal Variable:"+globalVar);
+        // }
+        // global1()
+        // }
+       
+        // global()
+        // console.log("i am GLobal Variable:"+globalVar);
+
+
+        let globalVar = "I am Global Variable";
+
+        function global(){
+            console.log(globalVar);//Possible
+        }
+        global()
+        console.log(globalVar);//
+
+        let name = "AIT";
+        function name1(){
+            name = "Institute";
+            console.log(name);//Institute---AIT
+            
+        }
+        console.log(name);//AIT
+        name1()
+        console.log(name);//Institute
+
+        var gv = "I am Global";
+
+        function test(){
+            console.log(gv);// I am Global
+            var gv = "i am local";//Local Scope
+        }
+        test()
+        console.log(gv);//I am Local
+
+        //Local Scope
+
+        function sayHello(){
+            let message = "Hello JS";
+            console.log(message);
+        }
+        sayHello()
+        // console.log(message);
+
+        function outerFunction(){
+            let outerVar = "I am Out Side";
+            function innerFunction(){
+                let innerVar = "I am Inside";
+                console.log(outerVar);//i am outside
+                console.log(innerVar);//i am inside
+            }
+            innerFunction()
+            // console.log(innerVar);//not defined
+            console.log(outerVar);//i am outside
+        }
+        outerFunction()
+        // console.log(outerVar);//not defined
+
+        function function2(){
+            if(true){
+                var z = "i am function Scopped var";
+                console.log(z);//Output
+            }
+            console.log(z);
+        }
+        // console.log(z);
+
+        //Block Scope
+
+        if(true){
+            var blockVar = "I am Block variable";
+            console.log(blockVar);
+        }
+        console.log(blockVar);
+
+        function testScope(){
+            let x = 10;
+            if(true){
+                let x= 20;//
+                console.log(x);//20
+
+            }
+            console.log(x);//10
+        }
+        testScope()
+
+        //Data types?
+            //1. Primitive---->Immutable
+                //1. Number(Any Number(int, float,byte))
+                //2. String-->Sequence of Charecters
+                //3. boolean--->true false
+                //4. undefined
+                //5. Null
+                //6. Symbol
+
+            //2, Non Primitive--->Mutable
+                //1. Arrays
+                //2. Objects
+                //3. Array of Objects
+
+
+        //1. Numberle 
+        let num10 = 10;//int
+        let num11 = 10.5;//float
+
+        console.log(typeof num10);
+        console.log(typeof num11);
+
+        //String
+
+        let name10 = "Winner";
+        let name11 = 'Winner';
+
+        console.log(typeof name10);//String
+        console.log(typeof name11);//String
+
+        //Boolean
+
+        let isTrue = false;
+        console.log(typeof isTrue);
+
+        //undefined
+
+        let user;
+        console.log(user);
+        console.log(typeof user);
+
+        //Null
+
+        let user1 = null;
+        console.log(user1);
+        console.log(typeof user1);
+
+        let id1 = Symbol("id");
+        let id2 = Symbol("id");
+
+        console.log(id1 == id2);//false
+        console.log(typeof id1);
+
+        let id3 = 10;
+        let id4 = 10;
+        console.log(id3 == id4);//true
+
+
+        //Non-Primitive----mutable
+            //1. Arrays
+
+            //varType varName = [value1,valu2,valu3]
+
+            let fruits = ["mango","Apple","banana",100,200,300];
+            console.log(typeof fruits);
+            console.log(Array.isArray(fruits));
+        console.log(fruits[1]);
+
+        //Object
+
+        //A collection of Key-Valu pairs
+
+        let person = {
+            name : "Name",
+            age : 30,
+            isMale : true
+
+        };
+
+        console.log(typeof person);
+        console.log(person.age);
+
+            
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    </script>
+</body>
+</html>

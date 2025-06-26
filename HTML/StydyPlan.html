@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Study Planner</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #f0f4f8; }
+    input, button { padding: 8px; margin: 5px; }
+    .output { margin-top: 20px; background: #fff; padding: 15px; border-radius: 8px; }
+  </style>
+</head>
+<body>
+
+  <h2>📚 Study Planner</h2>
+
+  <input type="text" id="subjectInput" placeholder="Subject">
+  <input type="number" id="hoursInput" placeholder="Hours">
+  <button onclick="addStudyPlan()">Add Plan</button>
+  <button onclick="showTotalHours()">Show Total</button>
+  <button onclick="showFocusSubjects()">Suggest Focus</button>
+  <button onclick="resetStudyPlan()">Reset</button>
+
+  <div class="output" id="planDisplay"></div>
+  <div class="output" id="summaryDisplay"></div>
+
+  <script>
+    let studyPlans = [];
+
+    function displayPlans() {
+      const display = document.getElementById("planDisplay");
+      display.innerHTML = "<h4>📋 Current Study Plans:</h4>";
+      if (studyPlans.length === 0) {
+        display.innerHTML += "<p>No plans added yet.</p>";
+        return;
+      }
+      for (let i = 0; i < studyPlans.length; i++) {
+        display.innerHTML += `<p>➡️ ${studyPlans[i].subject} - ${studyPlans[i].hours} hours</p>`;
+      }
+    }
+
+    function addStudyPlan() {
+      const subject = document.getElementById("subjectInput").value;
+      const hours = parseInt(document.getElementById("hoursInput").value);
+      if (subject && hours) {
+        studyPlans.push({ subject: subject, hours: hours });
+        displayPlans();
+        document.getElementById("subjectInput").value = "";
+        document.getElementById("hoursInput").value = "";
+      }
+    }
+
+    function showTotalHours() {
+      let total = 0;
+      for (let i = 0; i < studyPlans.length; i++) {
+        total += studyPlans[i].hours;
+      }
+      document.getElementById("summaryDisplay").innerHTML = `⏱️ <strong>Total Study Hours:</strong> ${total}`;
+    }
+
+    function showFocusSubjects() {
+      let output = "<h4>🔍 Focus More On:</h4>";
+      let found = false;
+      for (let i = 0; i < studyPlans.length; i++) {
+        if (studyPlans[i].hours < 3) {
+          output += `<p>⚠️ ${studyPlans[i].subject} (${studyPlans[i].hours} hrs)</p>`;
+          found = true;
+        }
+      }
+      if (!found) {
+        output += "<p>🎯 You're well-balanced across all subjects!</p>";
+      }
+      document.getElementById("summaryDisplay").innerHTML = output;
+    }
+
+    function resetStudyPlan() {
+      studyPlans = [];
+      displayPlans();
+      document.getElementById("summaryDisplay").innerHTML = "🗑️ Study plan reset successfully.";
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bakery Bill</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff7f0;
+      padding: 20px;
+    }
+    .bill {
+      background-color: #fff;
+      border: 2px solid #ffc0cb;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      margin: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #d14b8f;
+    }
+    .thank-you {
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bill" id="billContainer">
+    <!-- Bill content will appear here -->
+  </div>
+
+  <script>
+    // Global variables
+    let customerName, itemOrdered, quantity, totalAmount, discountedAmount;
+    const pricePerItem = 5;
+
+    // Get user input
+    function getCustomerOrder() {
+      customerName = prompt("Enter your name:");
+      itemOrdered = prompt("What would you like to order? (Cake, Muffin, Donut)");
+      quantity = parseInt(prompt("How many would you like to order?"), 10);
+    }
+
+    // Calculate total
+    function calculateTotal() {
+      totalAmount = pricePerItem * quantity;
+    }
+
+    // Apply 10% discount
+    function applyDiscount() {
+      discountedAmount = totalAmount - totalAmount * 0.1;
+    }
+
+    // Display the bill inside a div
+    function printBill() {
+      const container = document.getElementById("billContainer");
+
+      container.innerHTML = `
+        <h2>🍰 Sweet Bites Bakery</h2>
+        <hr>
+        <p><strong>Customer Name:</strong> ${customerName}</p>
+        <p><strong>Item Ordered:</strong> ${itemOrdered}</p>
+        <p><strong>Quantity:</strong> ${quantity}</p>
+        <p><strong>Price per Item:</strong> $${pricePerItem.toFixed(2)}</p>
+        <p><strong>Total:</strong> $${totalAmount.toFixed(2)}</p>
+        <p><strong>Discounted Total (10% off):</strong> $${discountedAmount.toFixed(2)}</p>
+        <hr>
+        <p class="thank-you">🧁 Thank you for your order! Come again! 🧁</p>
+      `;
+    }
+
+    // Run the app
+    getCustomerOrder();
+    calculateTotal();
+    applyDiscount();
+    printBill();
+  </script>
+
+</body>
+</html>

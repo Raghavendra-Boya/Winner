@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moodify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <h1>Moodify <i class="fa-solid fa-headphones"></i></h1>
+    <p>How are you feeling today?</p>
+
+    <button onclick="selectMood('happy')">Happy <i class="fa-solid fa-face-smile"></i></button>
+    <button onclick="selectMood('sad')">sad <i class="fa-solid fa-face-sad-tear"></i></button>
+    <button onclick="selectMood('energetic')">Energetic <i class="fa-solid fa-lightbulb"></i></button>
+    <button onclick="selectMood('calm')">calm <i class="fa-solid fa-lightbulb"></i></button>
+
+    <div id="emoji"></div>
+    <div id="quote"></div>
+
+    <div id = "music">
+        <h3>Selct the song</h3>
+        <ul id="songList"></ul>
+    </div>
+
+    <div>
+        <h3>Now Playing</h3>
+        <audio id="audioPlayer" src="" controls></audio>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

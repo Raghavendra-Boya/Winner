@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Form Validation with Local Storage</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    form { margin-bottom: 30px; }
+    input { display: block; margin: 10px 0; padding: 8px; width: 300px; }
+    .success { color: green; }
+    .error { color: red; }
+  </style>
+</head>
+<body>
+
+  <h2>Register Form</h2>
+  <form id="registerForm" onsubmit="return registerUser()">
+    <input type="text" id="regUsername" placeholder="Enter Username" required>
+    <input type="email" id="regEmail" placeholder="Enter Email" required>
+    <input type="password" id="regPassword" placeholder="Enter Password" required>
+    <button type="submit">Register</button>
+    <p id="registerMsg"></p>
+  </form>
+
+  <h2>Login Form</h2>
+  <form id="loginForm" onsubmit="return loginUser()">
+    <input type="email" id="loginEmail" placeholder="Enter Email" required>
+    <input type="password" id="loginPassword" placeholder="Enter Password" required>
+    <button type="submit">Login</button>
+    <p id="loginMsg"></p>
+  </form>
+
+  <script>
+    // ✅ Register Function
+    function registerUser() {
+      let username = document.getElementById("regUsername").value.trim();
+      let email = document.getElementById("regEmail").value.trim();
+      let password = document.getElementById("regPassword").value;
+
+      // Basic Validation
+      if (username === "" || email === "" || password === "") {
+        document.getElementById("registerMsg").innerHTML = "All fields are required.";
+        document.getElementById("registerMsg").className = "error";
+        return false;
+      }
+
+      // Create user object
+      let user = {
+        username: username,
+        email: email,
+        password: password
+      };
+
+      // Store user in localStorage
+      localStorage.setItem("user", JSON.stringify(user));
+
+      document.getElementById("registerMsg").innerHTML = "Registered Successfully!";
+      document.getElementById("registerMsg").className = "success";
+      document.getElementById("registerForm").reset();
+      return false; // Prevent actual form submission
+    }
+
+    // ✅ Login Function
+    function loginUser() {
+      let email = document.getElementById("loginEmail").value.trim();
+      let password = document.getElementById("loginPassword").value;
+
+      let storedUser = JSON.parse(localStorage.getItem("user"));
+
+      if (!storedUser) {
+        document.getElementById("loginMsg").innerHTML = "No registered user found.";
+        document.getElementById("loginMsg").className = "error";
+        return false;
+      }
+
+      if (email === storedUser.email && password === storedUser.password) {
+        document.getElementById("loginMsg").innerHTML = "Login Successful! Welcome " + storedUser.username;
+        document.getElementById("loginMsg").className = "success";
+      } else {
+        document.getElementById("loginMsg").innerHTML = "Invalid email or password.";
+        document.getElementById("loginMsg").className = "error";
+      }
+
+      return false; // Prevent actual form submission
+    }
+  </script>
+
+</body>
+</html>

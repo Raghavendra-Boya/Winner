@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries</title>
+    <style>
+        header{
+            display: flex;
+            align-items: center;
+            background-color: black;
+            column-gap: 10%;
+        }
+        .logo img{
+            width: 100%;
+        }
+        .navlinks{
+            display: flex;
+            justify-content: space-evenly;
+            width: 80%;
+        }
+        .navlinks a{
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width:480px){
+            header{
+                flex-direction: column;
+            }
+            .navlinks{
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+        }
+        .price{
+            display: flex;
+            justify-content: space-between;
+        }
+        .buy{
+            display: flex;
+            justify-content: space-between;
+        }
+        .main{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image img{
+            width: 100%;
+        }
+        .container{
+            /* width: 30%; */
+            flex: 1 1 30%;
+            margin: 0.8rem;
+
+            flex-grow: 1;
+            flex-shrink: 1;
+            flex-basis: 45%;
+        }
+        /* @media (min-width:480px) and (max-width:767px){
+            .container{
+                flex: 1 1 45%;
+                }
+        }
+                */
+         @media (max-width:480px){
+            .container{
+                flex: 1 1 75%;
+                }
+        } 
+
+
+        
+    </style>
+</head>
+<body>
+    <!--
+    Media Queries:
+    What is MeadiaQuery?
+    Media Queries are used to apply different styles to different devices.
+    Media Query Syntax
+    @media Min Size & Max Size{
+    
+    }
+
+    1. DeskTops more than 1200PX 
+    2. Laptop between 768px and 1200px
+    3. Tablet between 480px and 768px
+    4. Mobile between 0px and 480px
+
+    
+    -->
+
+    <header>
+        <div class="logo">
+            <img src="https://lms.achieversit.com/assets/images/logo.png" alt="logo">
+        </div>
+        <nav class="navlinks">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Courses</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <div class="main">
+        <div class="container">
+            <div class="price">
+                <p>Price: $100</p>
+                <p>Coffe</p>
+            </div>
+            <div class="image">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.PGflPWglidy4zgLdOsHiDAHaEo&pid=Api&P=0&h=180" alt="Image">
+            </div>
+            <div class="buy">
+                <a href="#">Buy Now</a>
+                <a href="#">Add to Cart</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="price">
+                <p>Price: $100</p>
+                <p>Coffe</p>
+            </div>
+            <div class="image">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.PGflPWglidy4zgLdOsHiDAHaEo&pid=Api&P=0&h=180" alt="Image">
+            </div>
+            <div class="buy">
+                <a href="#">Buy Now</a>
+                <a href="#">Add to Cart</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="price">
+                <p>Price: $100</p>
+                <p>Coffe</p>
+            </div>
+            <div class="image">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.PGflPWglidy4zgLdOsHiDAHaEo&pid=Api&P=0&h=180" alt="Image">
+            </div>
+            <div class="buy">
+                <a href="#">Buy Now</a>
+                <a href="#">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

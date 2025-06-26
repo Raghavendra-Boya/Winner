@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        //what is controlstatements?
+        //Control statements are used to control the flow of a program. They are used to decide which
+        //types of conditional statements?
+        //1. if
+        //2. if-else
+        //3. else-if ladder
+        //4. nested if-else
+        //5. switch
+
+
+        //1. if:
+        //Syntax:
+        //if (condition){
+        //     block of code
+        // }
+
+        let direction = "East";
+        if (direction === "East") {
+            console.log("Sun Raises on Ease Side");
+        }
+
+        //2. if-else
+        //Syntax:
+        //if (condition){
+        //     block of code
+        // }
+        //else{
+        //     block of code
+        // }
+
+        let climate = "Rain";
+        if (climate === "Rain") {
+            console.log("Bring Umbrella");
+        }
+        else {
+            console.log("No Umbrella");
+        }
+
+        let age = Number(prompt("Enter Your Age : "));
+        if (age + 1 >= 18) {
+            console.log("You are Eligible to Vote");
+        }
+        else {
+            console.log("You are Not Eligible to Vote");
+        }
+
+        let userName = prompt("Enter Your Name: ")
+        let password = Number(prompt("Enter Your Password: "));
+
+        if (userName == "admin" && password == 12345678) {
+            console.log("Login Successful....!");
+        }
+        else {
+            console.log("Invalid Credentials");
+        }
+
+        //3. else if ladder
+        //Syntax:
+        //if (condition1){
+        //     block of code
+        // }
+        //else if (condition2){
+        //     block of code
+        // }
+        //else if (condition3){
+        //     block of code
+        //}
+        //else{
+        //     block of code
+        // }
+
+
+
+        let marks = Number(prompt("ENter Your Marks: "));
+        if (marks >= 90) {
+            console.log("Grade A");
+        }
+        else if (marks >= 80) {
+            console.log("Grade B");
+        }
+        else if (marks >= 70) {
+            console.log("Grade C");
+        }
+        else {
+            console.log("Grade D");
+
+        }
+
+
+        //switch
+        //Syntax:
+        //switch(expression){
+        //    case value1:
+        //        code to be executed if expression matches value1
+        //        break;
+        //    case value2:
+        //        code to be executed if expression matches value2
+        //        break;
+        //    case value3:
+        //        code to be executed if expression matches value3
+        //        break;
+        //    default:
+        //        code to be executed if expression does not match any of the values
+        //        break;
+
+
+        let score = Number(prompt("Enter Your Score: "));
+
+        switch (score) {
+            
+            case 90:
+                console.log("Grade A");
+                break;
+            case 80:
+                console.log("Grade B");
+                break;
+            case 70:
+                console.log("Grade D");
+                break;
+
+        }
+
+
+    </script>
+</body>
+
+</html>
